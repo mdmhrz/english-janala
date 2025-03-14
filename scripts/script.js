@@ -8,8 +8,6 @@ hideElementsByID('headerContainer');
 hideElementsByID('learningContainer');
 hideElementsByID('faqContainer')
 
-
-
 document.getElementById('get-start').addEventListener('click', (event) => {
     event.preventDefault()
     const userName = getInputValueById('inputName');
