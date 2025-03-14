@@ -57,7 +57,7 @@ const showWords = (words) => {
                     <h1 class="text-3xl font-bold mt-3">${word.meaning} / ${word.pronunciation}</h1>
                 </div>
                 <div class="flex items-center justify-between">
-                    <div class="w-12 h-12 cursor-pointer hover:bg-violet-300 rounded-sm bg-violet-200 flex items-center justify-center">
+                    <div onclick="my_modal_3.showModal()" class="w-12 h-12 cursor-pointer hover:bg-violet-300 rounded-sm bg-violet-200 flex items-center justify-center">
                         <i class="fa-solid fa-circle-info"></i>
                     </div>
                     <div class="w-12 h-12 cursor-pointer hover:bg-violet-300 rounded-sm bg-violet-200 flex items-center justify-center">
@@ -67,9 +67,24 @@ const showWords = (words) => {
             </div>
         `;
         wordsContainer.appendChild(div);
+
+        const modalContainersectoin = document.getElementById('modal-contaier');
+        const newdiv = document.createElement('dialog');
+        newdiv.classList.add('modal')
+        newdiv.id.add('my_modal_3')
+        newdiv.innerHTML = `
+            <div class="modal-box">
+                <form method="dialog">
+                    <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                </form>
+                <h3 class="text-lg font-bold">Hello!</h3>
+                <p class="py-4">Press ESC key or click on ✕ button to close</p>
+            </div>
+        `
+        modalContainersectoin.appendChild(newdiv)
+
     });
 };
-
 
 
 

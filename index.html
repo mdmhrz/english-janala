@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -11,37 +12,42 @@
     <!-- Google Font CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+        rel="stylesheet">
     <!-- Font Awesome CDN -->
     <script src="https://kit.fontawesome.com/c4e937c9d9.js" crossorigin="anonymous"></script>
     <style>
-        body{
+        body {
             font-family: "Inter", kalpurush;
         }
 
-        .btn-grad {background-image: linear-gradient(to right, #4776E6 0%, #8E54E9  51%, #4776E6  100%)}
-        
         .btn-grad {
-        margin: 10px;
-        padding: 15px 45px;
-        text-align: center;
-        text-transform: uppercase;
-        transition: 0.5s;
-        background-size: 200% auto;
-        color: white;            
-        box-shadow: 0 0 20px #eee;
-        border-radius: 10px;
-        display: block;
+            background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%)
+        }
+
+        .btn-grad {
+            margin: 10px;
+            padding: 15px 45px;
+            text-align: center;
+            text-transform: uppercase;
+            transition: 0.5s;
+            background-size: 200% auto;
+            color: white;
+            box-shadow: 0 0 20px #eee;
+            border-radius: 10px;
+            display: block;
         }
 
         .btn-grad:hover {
-        background-position: right center; /* change the direction of the change here */
-        color: #fff;
-        text-decoration: none;
+            background-position: right center;
+            /* change the direction of the change here */
+            color: #fff;
+            text-decoration: none;
         }
-
     </style>
 </head>
+
 <body>
     <!-- Header -->
     <header id="headerContainer" class="bg-gray-100 border-b-2 border-gray-200">
@@ -52,20 +58,25 @@
                 <p class="font-bold text-2xl">জানালা</p>
             </div>
             <div class="flex gap-3">
-                <button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i>  FAQ</button>
-                <button class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i>  Learn</button>
-                <button id="logoutBtn" class="btn btn-outline btn-primary"><i class="fa-solid fa-right-from-bracket"></i>  Logout</button>
+                <button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</button>
+                <button class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</button>
+                <button id="logoutBtn" class="btn btn-outline btn-primary"><i
+                        class="fa-solid fa-right-from-bracket"></i> Logout</button>
             </div>
         </nav>
     </header>
     <main>
         <!-- Banner Section -->
-        <section id="bannerContainer" class="w-11/12 md:w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 lg:gap-80 min-h-screen items-center">
+        <section id="bannerContainer"
+            class="w-11/12 md:w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 lg:gap-80 min-h-screen items-center">
             <div class="flex flex-col gap-4">
                 <h1 class="font-bold text-4xl lg:text-5xl"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
-                <p class="text-[1.5rem] font-medium mb-8">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ।</p>
-                <input class="rounded-sm max-w-[420px] px-4 py-2 border-2 border-gray-300" type="text" name="name" id="inputName" placeholder="Enter Your Name">
-                <input class="rounded-sm max-w-[420px] px-4 py-2 border-2 border-gray-300" type="password" name="password" id="inputPassword" placeholder="Enter Your Password (eg:123456)">
+                <p class="text-[1.5rem] font-medium mb-8">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন
+                    অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ।</p>
+                <input class="rounded-sm max-w-[420px] px-4 py-2 border-2 border-gray-300" type="text" name="name"
+                    id="inputName" placeholder="Enter Your Name">
+                <input class="rounded-sm max-w-[420px] px-4 py-2 border-2 border-gray-300" type="password"
+                    name="password" id="inputPassword" placeholder="Enter Your Password (eg:123456)">
                 <button id="get-start" class="btn btn-primary max-w-[140px]">Get Started</button>
             </div>
             <div>
@@ -75,7 +86,8 @@
 
         <!-- Let's Learn Vocabularies -->
         <section id="learningContainer" class=" w-11/12 md:w-10/12 mx-auto py-8 mt-28">
-            <h1 class="font-bold text-2xl lg:text-4xl text-center mb-10"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
+            <h1 class="font-bold text-2xl lg:text-4xl text-center mb-10"><span class="text-[#00BCFF]">Let's</span> Learn
+                Vocabularies</h1>
             <!-- Dynamic Lesson Buttons -->
             <div id="lessonContainer" class="lesson-container flex items-center justify-center gap-6 flex-wrap mb-8">
             </div>
@@ -90,42 +102,63 @@
                 <p class="text-3xl text-gray-700 font-medium">একটি Lesson Select করুন।</p>
             </div>
             <!-- Error Warning box -->
-            <div id="warning-dialogue-display" class="bg-gray-50 mt-6 text-center py-16 rounded-md w-full flex flex-col items-center gap-3 hidden">
-                <div class="w-18 h-18 bg-red-100 rounded-full flex items-center justify-center"><i class="text-red-400 text-4xl fa-solid fa-triangle-exclamation"></i></div>
+            <div id="warning-dialogue-display"
+                class="bg-gray-50 mt-6 text-center py-16 rounded-md w-full flex flex-col items-center gap-3 hidden">
+                <div class="w-18 h-18 bg-red-100 rounded-full flex items-center justify-center"><i
+                        class="text-red-400 text-4xl fa-solid fa-triangle-exclamation"></i></div>
                 <p class="text-gray-500 mb-3 text-red-400">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
                 <p class="text-3xl text-gray-700 font-medium">নেক্সট Lesson এ যান</p>
             </div>
+            <div id="modal-contaier">
+                <!-- You can open the modal using ID.showModal() method -->
+                <!-- <button class="btn" onclick="my_modal_3.showModal()">open modal</button> -->
+                <!-- <dialog id="my_modal_3" class="modal">
+                    <div class="modal-box">
+                        <form method="dialog">
+                            <button class="btn btn-sm btn-circle btn-ghost absolute right-2 top-2">✕</button>
+                        </form>
+                        <h3 class="text-lg font-bold">Hello!</h3>
+                        <p class="py-4">Press ESC key or click on ✕ button to close</p>
+                    </div>
+                </dialog> -->
+            </div>
 
         </section>
-        
+
         <!-- Frequently Asked Question -->
         <section id="faqContainer" class="w-11/12 md:w-10/12 mx-auto mt-24 space-y-4 mb-28">
-            <h1 class="font-bold text-2xl lg:text-4xl text-center mb-6"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
+            <h1 class="font-bold text-2xl lg:text-4xl text-center mb-6"><span class="text-[#00BCFF]">Let's</span> Learn
+                Vocabularies</h1>
             <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
                 <input type="radio" name="my-accordion-3" checked="checked" />
                 <div class="collapse-title font-semibold">1. How can I start learning English on this website?</div>
-                <div class="collapse-content text-sm">You can start by exploring our beginner lessons, interactive exercises, and quizzes. We also offer structured courses to guide you step by step.</div>
-              </div>
-              <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
+                <div class="collapse-content text-sm">You can start by exploring our beginner lessons, interactive
+                    exercises, and quizzes. We also offer structured courses to guide you step by step.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
                 <input type="radio" name="my-accordion-3" />
                 <div class="collapse-title font-semibold">2. Is this website free to use?</div>
-                <div class="collapse-content text-sm">Click on "Forgot Password" on the login page and follow the instructions sent to your email.</div>
-              </div>
-              <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
+                <div class="collapse-content text-sm">Click on "Forgot Password" on the login page and follow the
+                    instructions sent to your email.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
                 <input type="radio" name="my-accordion-3" />
                 <div class="collapse-title font-semibold">3. Do I need to create an account?</div>
-                <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make changes.</div>
-              </div>
-              <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
+                <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make
+                    changes.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
                 <input type="radio" name="my-accordion-3" />
                 <div class="collapse-title font-semibold">4. How can I build my English vocabulary?</div>
-                <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make changes.</div>
-              </div>
-              <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
+                <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make
+                    changes.</div>
+            </div>
+            <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
                 <input type="radio" name="my-accordion-3" />
                 <div class="collapse-title font-semibold">5. Do you offer certificates for completed courses?</div>
-                <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make changes.</div>
-              </div>
+                <div class="collapse-content text-sm">Go to "My Account" settings and select "Edit Profile" to make
+                    changes.</div>
+            </div>
         </section>
     </main>
     <footer id="footerContainer" class="bg-gray-50">
@@ -149,16 +182,14 @@
                     </div>
 
                 </div>
-                
+
             </nav>
         </section>
     </footer>
-    
+
     <script src="./scripts/utilities.js"></script>
     <script src="./scripts/login-logout.js"></script>
     <script src="./scripts/index.js"></script>
 </body>
+
 </html>
-
-
-
