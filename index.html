@@ -78,14 +78,10 @@
             <h1 class="font-bold text-2xl lg:text-4xl text-center mb-10"><span class="text-[#00BCFF]">Let's</span> Learn Vocabularies</h1>
             <!-- Dynamic Lesson Buttons -->
             <div id="lessonContainer" class="lesson-container flex items-center justify-center gap-6 flex-wrap mb-8">
-                
             </div>
 
             <!-- Dynamic Lesson Details by Lesson Number -->
             <div id="words-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                                
-                
-
             </div>
 
             <!-- Default Display for Selection -->
@@ -93,6 +89,13 @@
                 <p class="text-gray-500 mb-3">আপনি এখনো কোন Lesson Select করেন নি</p>
                 <p class="text-3xl text-gray-700 font-medium">একটি Lesson Select করুন।</p>
             </div>
+            <!-- Error Warning box -->
+            <div id="warning-dialogue-display" class="bg-gray-50 mt-6 text-center py-16 rounded-md w-full flex flex-col items-center gap-3 hidden">
+                <div class="w-18 h-18 bg-red-100 rounded-full flex items-center justify-center"><i class="text-red-400 text-4xl fa-solid fa-triangle-exclamation"></i></div>
+                <p class="text-gray-500 mb-3 text-red-400">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
+                <p class="text-3xl text-gray-700 font-medium">নেক্সট Lesson এ যান</p>
+            </div>
+
         </section>
         
         <!-- Frequently Asked Question -->

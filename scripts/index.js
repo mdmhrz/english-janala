@@ -35,17 +35,19 @@ const loadWords = async (id) => {
         const response = await fetch(`https://openapi.programming-hero.com/api/level/${id}`);
         const data = await response.json();
         showWords(data.data);
+
     } catch (error) {
         console.error('Error fetching words:', error);
     }
 };
 
 const showWords = (words) => {
-
+    if (words.length === 0) {
+        showElementsByID('warning-dialogue-display')
+    }
     const wordsContainer = document.getElementById('words-container');
     wordsContainer.innerHTML = '';
     words.forEach((word) => {
-
         const div = document.createElement('div');
         div.innerHTML = `
             <div class="bg-gray-100 rounded-md shadow-md p-5 text-center hover:bg-violet-100">
