@@ -23,9 +23,3 @@ const getConInputValueByID = (id) => {
     return data
 
 }
-
-// Get Elements by ID
-
-const getEl = (id) => {
-    document.getElementById(id);
-}
