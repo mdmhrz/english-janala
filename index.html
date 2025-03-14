@@ -11,18 +11,56 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
+    <!-- Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/c4e937c9d9.js" crossorigin="anonymous"></script>
     <style>
         body{
-            font-family: "Inter", sans-serif;
+            font-family: "Inter", kalpurush;
         }
+
+        .btn-grad {background-image: linear-gradient(to right, #4776E6 0%, #8E54E9  51%, #4776E6  100%)}
+        
+        .btn-grad {
+        margin: 10px;
+        padding: 15px 45px;
+        text-align: center;
+        text-transform: uppercase;
+        transition: 0.5s;
+        background-size: 200% auto;
+        color: white;            
+        box-shadow: 0 0 20px #eee;
+        border-radius: 10px;
+        display: block;
+        }
+
+        .btn-grad:hover {
+        background-position: right center; /* change the direction of the change here */
+        color: #fff;
+        text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
-    <h1>Hello Bangladesh</h1>
-
-
+    <header class="bg-gray-100 border-b-2 border-gray-200">
+        <nav class="flex items-center justify-between w-11/12 mx-auto py-5">
+            <div class="flex items-center gap-2">
+                <p class="font-bold text-2xl">English</p>
+                <i class="fa-brands fa-windows text-blue-600 text-4xl"></i>
+                <p class="font-bold text-2xl">জানালা</p>
+            </div>
+            <div class="flex gap-3">
+                <button class="btn border-2 border-blue-600 hover:bg-blue-600 hover:text-white bg-none text-blue-600 "> <i class="fa-solid fa-circle-question"></i> FAQ</button>
+                <button class="btn border-2 border-blue-600 hover:bg-blue-600 hover:text-white bg-none text-blue-600 "><i class="fa-solid fa-book-open"></i> Learn</button>
+                <button class="btn border-2 border-blue-600 hover:bg-blue-600 hover:text-white bg-none text-blue-600 "><i class="fa-solid fa-right-from-bracket"></i> Logout</button>
+            </div>
+        </nav>
+    </header>
+    
 
     <script src="./scripts/script.js"></script>
 </body>
 </html>
+
+
+
