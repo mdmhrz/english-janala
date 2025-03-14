@@ -13,12 +13,15 @@ const showElementsByID = (id) => {
 
 // Get Input Value
 const getInputValueById = (id) => {
-    document.getElementById('id').value;
+    const data = document.getElementById(id).value;
+    return data;
 }
 
 // Get Converted Input Value By ID
 const getConInputValueByID = (id) => {
-    parseInt(document.getElementById('id').value);
+    const data = parseInt(document.getElementById(id).value);
+    return data
+
 }
 
 // Get Elements by ID
