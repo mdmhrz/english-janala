@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>VocabMaster - Learn English Vocabulary</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      :where([class^="ri-"])::before { content: "\f3c2"; }
+      .accordion-content { display: none; }
+      .accordion-content.active { display: block; }
+    </style>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              primary: "#6366f1",
+              secondary: "#4f46e5",
+            },
+            borderRadius: {
+              none: "0px",
+              sm: "4px",
+              DEFAULT: "8px",
+              md: "12px",
+              lg: "16px",
+              xl: "20px",
+              "2xl": "24px",
+              "3xl": "32px",
+              full: "9999px",
+              button: "8px",
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body class="min-h-screen bg-slate-900 text-white">
+    <nav
+      class="sticky top-0 z-50 bg-gradient-to-r from-slate-900 to-slate-800 shadow-lg backdrop-blur-sm bg-opacity-80"
+    >
+      <div class="container mx-auto px-6 py-4">
+        <div class="flex items-center justify-between">
+          <div class="flex items-center">
+            <h1 class="text-3xl font-['Pacifico'] text-primary">VocabMaster</h1>
+          </div>
+          <div class="flex items-center space-x-6">
+            <button
+              class="flex items-center space-x-2 text-gray-300 hover:text-primary transition-colors cursor-pointer"
+            >
+              <i class="ri-question-line ri-lg"></i>
+              <span>FAQ</span>
+            </button>
+            <button
+              class="flex items-center space-x-2 text-gray-300 hover:text-primary transition-colors cursor-pointer"
+            >
+              <i class="ri-book-open-line ri-lg"></i>
+              <span>Lessons</span>
+            </button>
+            <button
+              class="flex items-center space-x-2 px-4 py-2 bg-primary hover:bg-secondary transition-colors rounded-button cursor-pointer"
+            >
+              <i class="ri-logout-box-line ri-lg"></i>
+              <span>Logout</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </nav>
+    <header class="relative bg-gray-900 py-20">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+          <div class="text-center md:text-left">
+            <h2
+              class="text-4xl md:text-5xl font-bold mb-6 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+            >
+              Master English Vocabulary With Confidence
+            </h2>
+            <p class="text-xl text-gray-300 mb-8">
+              "The limits of my language mean the limits of my world." - Ludwig
+              Wittgenstein
+            </p>
+            <form class="max-w-md mx-auto md:mx-0 space-y-4">
+              <div class="relative">
+                <i
+                  class="ri-mail-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                ></i>
+                <input
+                  type="email"
+                  placeholder="Email address"
+                  class="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-button focus:border-primary focus:outline-none"
+                />
+              </div>
+              <div class="relative">
+                <i
+                  class="ri-lock-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+                ></i>
+                <input
+                  type="password"
+                  placeholder="Password"
+                  class="w-full pl-10 pr-4 py-3 bg-gray-800 border border-gray-700 rounded-button focus:border-primary focus:outline-none"
+                />
+              </div>
+              <div class="flex items-center">
+                <input type="checkbox" id="remember" class="mr-2" />
+                <label for="remember" class="text-gray-300">Remember me</label>
+              </div>
+              <button
+                type="submit"
+                class="w-full py-3 bg-gradient-to-r from-primary to-secondary hover:opacity-90 transition-opacity rounded-button"
+              >
+                Sign In
+              </button>
+            </form>
+          </div>
+          <div class="relative h-64 md:h-96">
+            <img
+              src="https://public.readdy.ai/ai/img_res/17efcdb9e7cdab280cfd65bdb9071b9c.jpg"
+              alt="Learning Illustration"
+              class="absolute inset-0 w-full h-full object-cover rounded-lg"
+            />
+          </div>
+        </div>
+      </div>
+    </header>
+    <section class="py-20 bg-slate-800">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+        >
+          Choose Your Learning Path
+        </h2>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6" id="categoryButtons">
+          <button
+            class="category-btn p-6 bg-gradient-to-br from-primary to-secondary rounded-lg hover:scale-105 transition-transform cursor-pointer"
+          >
+            <i class="ri-briefcase-line ri-2x mb-4"></i>
+            <h3 class="text-lg font-semibold">Business</h3>
+          </button>
+          <button
+            class="category-btn p-6 bg-gradient-to-br from-primary to-secondary rounded-lg hover:scale-105 transition-transform cursor-pointer"
+          >
+            <i class="ri-heart-pulse-line ri-2x mb-4"></i>
+            <h3 class="text-lg font-semibold">Medical</h3>
+          </button>
+          <button
+            class="category-btn p-6 bg-gradient-to-br from-primary to-secondary rounded-lg hover:scale-105 transition-transform cursor-pointer"
+          >
+            <i class="ri-computer-line ri-2x mb-4"></i>
+            <h3 class="text-lg font-semibold">Technology</h3>
+          </button>
+          <button
+            class="category-btn p-6 bg-gradient-to-br from-primary to-secondary rounded-lg hover:scale-105 transition-transform cursor-pointer"
+          >
+            <i class="ri-plant-line ri-2x mb-4"></i>
+            <h3 class="text-lg font-semibold">Nature</h3>
+          </button>
+          <button
+            class="category-btn p-6 bg-gradient-to-br from-primary to-secondary rounded-lg hover:scale-105 transition-transform cursor-pointer"
+          >
+            <i class="ri-movie-line ri-2x mb-4"></i>
+            <h3 class="text-lg font-semibold">Entertainment</h3>
+          </button>
+          <button
+            class="category-btn p-6 bg-gradient-to-br from-primary to-secondary rounded-lg hover:scale-105 transition-transform cursor-pointer"
+          >
+            <i class="ri-restaurant-line ri-2x mb-4"></i>
+            <h3 class="text-lg font-semibold">Food</h3>
+          </button>
+          <button
+            class="category-btn p-6 bg-gradient-to-br from-primary to-secondary rounded-lg hover:scale-105 transition-transform cursor-pointer"
+          >
+            <i class="ri-plane-line ri-2x mb-4"></i>
+            <h3 class="text-lg font-semibold">Travel</h3>
+          </button>
+          <button
+            class="category-btn p-6 bg-gradient-to-br from-primary to-secondary rounded-lg hover:scale-105 transition-transform cursor-pointer"
+          >
+            <i class="ri-basketball-line ri-2x mb-4"></i>
+            <h3 class="text-lg font-semibold">Sports</h3>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="vocabularyGrid" class="py-20 bg-slate-900 hidden">
+      <div class="container mx-auto px-6">
+        <div class="flex justify-between items-center mb-8">
+          <h2
+            class="text-3xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+          >
+            Vocabulary List
+          </h2>
+          <div class="flex items-center space-x-4">
+            <div class="relative">
+              <i
+                class="ri-search-line absolute left-3 top-1/2 -translate-y-1/2 text-gray-400"
+              ></i>
+              <input
+                type="text"
+                placeholder="Search words..."
+                class="pl-10 pr-4 py-2 bg-gray-800 border border-gray-700 rounded-button focus:border-primary focus:outline-none"
+              />
+            </div>
+            <select
+              class="px-4 py-2 bg-gray-800 border border-gray-700 rounded-button focus:border-primary focus:outline-none"
+            >
+              <option>Sort by A-Z</option>
+              <option>Sort by Difficulty</option>
+              <option>Recently Added</option>
+            </select>
+          </div>
+        </div>
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+          id="wordGrid"
+        >
+          <!-- Word cards will be dynamically inserted here -->
+        </div>
+        <div class="flex justify-center mt-8 space-x-2">
+          <button
+            class="px-4 py-2 bg-gray-800 rounded-button hover:bg-gray-700"
+          >
+            &lt;
+          </button>
+          <button class="px-4 py-2 bg-primary rounded-button">1</button>
+          <button
+            class="px-4 py-2 bg-gray-800 rounded-button hover:bg-gray-700"
+          >
+            2
+          </button>
+          <button
+            class="px-4 py-2 bg-gray-800 rounded-button hover:bg-gray-700"
+          >
+            3
+          </button>
+          <button
+            class="px-4 py-2 bg-gray-800 rounded-button hover:bg-gray-700"
+          >
+            &gt;
+          </button>
+        </div>
+      </div>
+    </section>
+    <section class="py-20 bg-slate-800">
+      <div class="container mx-auto px-6">
+        <h2
+          class="text-3xl font-bold text-center mb-12 bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent"
+        >
+          Frequently Asked Questions
+        </h2>
+        <div class="max-w-3xl mx-auto space-y-4">
+          <div
+            class="accordion-item bg-slate-900/50 rounded-lg backdrop-blur-sm"
+          >
+            <button
+              class="w-full px-6 py-4 text-left flex justify-between items-center"
+            >
+              <span class="text-lg font-semibold"
+                >How does the vocabulary learning system work?</span
+              >
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="accordion-content px-6 pb-4">
+              <p class="text-gray-300">
+                Our system uses spaced repetition and interactive exercises to
+                help you learn and retain new vocabulary effectively. You'll
+                encounter words in context, practice pronunciation, and track
+                your progress.
+              </p>
+            </div>
+          </div>
+          <div
+            class="accordion-item bg-slate-900/50 rounded-lg backdrop-blur-sm"
+          >
+            <button
+              class="w-full px-6 py-4 text-left flex justify-between items-center"
+            >
+              <span class="text-lg font-semibold"
+                >Can I track my learning progress?</span
+              >
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="accordion-content px-6 pb-4">
+              <p class="text-gray-300">
+                Yes! Our platform provides detailed analytics of your learning
+                journey, including words mastered, time spent learning, and
+                areas for improvement.
+              </p>
+            </div>
+          </div>
+          <div
+            class="accordion-item bg-slate-900/50 rounded-lg backdrop-blur-sm"
+          >
+            <button
+              class="w-full px-6 py-4 text-left flex justify-between items-center"
+            >
+              <span class="text-lg font-semibold"
+                >Is there a mobile app available?</span
+              >
+              <i class="ri-arrow-down-s-line"></i>
+            </button>
+            <div class="accordion-content px-6 pb-4">
+              <p class="text-gray-300">
+                Yes, we have mobile apps for both iOS and Android platforms. You
+                can sync your progress across all devices and learn on the go.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <footer class="bg-slate-900 py-12 border-t border-slate-800">
+      <div class="container mx-auto px-6">
+        <div class="grid md:grid-cols-2 gap-12">
+          <div>
+            <h3 class="text-xl font-bold mb-4">About VocabMaster</h3>
+            <p class="text-gray-300 mb-4">
+              Empowering learners worldwide to expand their English vocabulary
+              through innovative and engaging methods.
+            </p>
+            <div class="flex space-x-4">
+              <a href="#" class="text-gray-300 hover:text-primary"
+                ><i class="ri-facebook-fill ri-lg"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-primary"
+                ><i class="ri-twitter-fill ri-lg"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-primary"
+                ><i class="ri-instagram-fill ri-lg"></i
+              ></a>
+              <a href="#" class="text-gray-300 hover:text-primary"
+                ><i class="ri-linkedin-fill ri-lg"></i
+              ></a>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 gap-8">
+            <div>
+              <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+              <ul class="space-y-2">
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-primary">Home</a>
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-primary"
+                    >About Us</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-primary"
+                    >Courses</a
+                  >
+                </li>
+                <li>
+                  <a href="#" class="text-gray-300 hover:text-primary"
+                    >Contact</a
+                  >
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h3 class="text-xl font-bold mb-4">Contact Info</h3>
+              <ul class="space-y-2 text-gray-300">
+                <li class="flex items-center space-x-2">
+                  <i class="ri-mail-line"></i>
+                  <span>support@vocabmaster.com</span>
+                </li>
+                <li class="flex items-center space-x-2">
+                  <i class="ri-phone-line"></i>
+                  <span>+1 (555) 123-4567</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </footer>
+    <script>
+      const mockVocabulary = [
+        {
+          id: 1,
+          word: "Acquisition",
+          definition: "The act of acquiring or gaining possession of something",
+          synonyms: "Purchase, procurement, takeover",
+          example: "The company's acquisition of its rival created a market leader.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 2,
+          word: "Budget",
+          definition:
+            "An estimate of income and expenditure for a set period of time",
+          synonyms: "Allocation, allowance, estimate",
+          example: "The annual budget needs to be approved by the board.",
+          difficulty: "Beginner",
+        },
+        {
+          id: 3,
+          word: "Collaborate",
+          definition: "Work jointly on an activity or project",
+          synonyms: "Cooperate, team up, work together",
+          example:
+            "Different departments need to collaborate to achieve company goals.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 4,
+          word: "Deadline",
+          definition:
+            "The latest time or date by which something should be completed",
+          synonyms: "Time limit, due date, cutoff",
+          example: "We must meet the project deadline by next Friday.",
+          difficulty: "Beginner",
+        },
+        {
+          id: 5,
+          word: "Entrepreneur",
+          definition: "A person who sets up a business taking on financial risks",
+          synonyms: "Businessperson, founder, innovator",
+          example: "As an entrepreneur, she launched three successful startups.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 6,
+          word: "Forecast",
+          definition: "Predict or estimate future events or trends",
+          synonyms: "Prediction, projection, prognosis",
+          example: "The financial forecast shows strong growth next quarter.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 7,
+          word: "Governance",
+          definition: "The way that organizations or countries are managed",
+          synonyms: "Management, administration, control",
+          example: "Good corporate governance is essential for long-term success.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 8,
+          word: "Hierarchy",
+          definition:
+            "A system in which members are ranked according to relative status",
+          synonyms: "Ranking, structure, chain of command",
+          example: "The company has a clear organizational hierarchy.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 9,
+          word: "Innovation",
+          definition:
+            "The introduction of new things, ideas or ways of doing something",
+          synonyms: "Creation, invention, breakthrough",
+          example: "Continuous innovation keeps us ahead of competitors.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 10,
+          word: "Joint venture",
+          definition: "A business enterprise undertaken by two or more parties",
+          synonyms: "Partnership, collaboration, alliance",
+          example: "The joint venture allowed both companies to enter new markets.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 11,
+          word: "Key performance indicator",
+          definition: "A quantifiable measure used to evaluate success",
+          synonyms: "Metric, benchmark, measure",
+          example: "Sales growth is a key performance indicator for our business.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 12,
+          word: "Leverage",
+          definition: "Use something to maximum advantage",
+          synonyms: "Utilize, exploit, capitalize on",
+          example: "We need to leverage our existing customer base.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 13,
+          word: "Merger",
+          definition: "Combination of two things, especially companies",
+          synonyms: "Consolidation, amalgamation, fusion",
+          example: "The merger created one of the largest banks in the country.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 14,
+          word: "Negotiate",
+          definition: "Try to reach an agreement by discussion",
+          synonyms: "Bargain, discuss, arrange",
+          example: "We need to negotiate better terms with our suppliers.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 15,
+          word: "Outsource",
+          definition: "Obtain goods or services from an outside supplier",
+          synonyms: "Contract out, delegate, subcontract",
+          example: "Many companies outsource their IT operations.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 16,
+          word: "Portfolio",
+          definition: "A range of investments held by a person or organization",
+          synonyms: "Collection, selection, array",
+          example: "A diverse investment portfolio reduces risk.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 17,
+          word: "Quarterly",
+          definition: "Occurring or produced at three-month intervals",
+          synonyms: "Three-monthly, periodic, seasonal",
+          example: "The quarterly report shows improved performance.",
+          difficulty: "Beginner",
+        },
+        {
+          id: 18,
+          word: "Revenue",
+          definition: "Income from business activities",
+          synonyms: "Income, earnings, proceeds",
+          example: "Annual revenue exceeded expectations.",
+          difficulty: "Beginner",
+        },
+        {
+          id: 19,
+          word: "Stakeholder",
+          definition: "Person with an interest or concern in a business",
+          synonyms: "Shareholder, investor, participant",
+          example: "We must consider all stakeholder interests.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 20,
+          word: "Target market",
+          definition: "Particular group of consumers at which a product is aimed",
+          synonyms: "Market segment, demographic, audience",
+          example: "Our target market is young professionals.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 21,
+          word: "Underwrite",
+          definition:
+            "Accept liability for possible losses on securities or property",
+          synonyms: "Guarantee, insure, back",
+          example: "The bank agreed to underwrite the new share issue.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 22,
+          word: "Venture capital",
+          definition: "Capital invested in a project with substantial risk",
+          synonyms: "Risk capital, seed money, funding",
+          example: "The startup secured venture capital funding.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 23,
+          word: "Wholesale",
+          definition: "The selling of goods in large quantities",
+          synonyms: "Bulk selling, distribution, supply",
+          example: "Wholesale prices are lower than retail prices.",
+          difficulty: "Beginner",
+        },
+        {
+          id: 24,
+          word: "Yield",
+          definition: "The return or profit on an investment",
+          synonyms: "Return, profit, dividend",
+          example: "The bond yields 5% annually.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 25,
+          word: "Zero-sum",
+          definition: "Situation where one person's gain is another's loss",
+          synonyms: "Win-lose, balanced, offsetting",
+          example: "Business negotiations aren't always zero-sum games.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 26,
+          word: "Accountability",
+          definition: "The obligation to accept responsibility for actions",
+          synonyms: "Responsibility, liability, answerability",
+          example: "Managers have accountability for their team's performance.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 27,
+          word: "Benchmark",
+          definition: "A standard against which performance can be measured",
+          synonyms: "Standard, reference point, criterion",
+          example: "Industry benchmarks help evaluate our performance.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 28,
+          word: "Compliance",
+          definition: "Acting in accordance with rules or standards",
+          synonyms: "Conformity, adherence, observance",
+          example: "Regulatory compliance is essential in banking.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 29,
+          word: "Diversification",
+          definition: "The process of varying or expanding business activities",
+          synonyms: "Expansion, broadening, variation",
+          example: "Diversification into new markets reduced business risk.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 30,
+          word: "Equity",
+          definition: "The value of shares issued by a company",
+          synonyms: "Shares, stock, ownership",
+          example: "The company raised capital through equity financing.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 31,
+          word: "Franchise",
+          definition: "Authorization to sell company's products in particular area",
+          synonyms: "License, concession, dealership",
+          example: "They bought a fast-food franchise.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 32,
+          word: "Gross margin",
+          definition: "Difference between revenue and cost of goods sold",
+          synonyms: "Profit margin, markup, return",
+          example: "High gross margins indicate efficient operations.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 33,
+          word: "Hedge",
+          definition: "Protection against financial loss",
+          synonyms: "Protection, insurance, safeguard",
+          example: "We hedge against currency fluctuations.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 34,
+          word: "Infrastructure",
+          definition: "Basic physical systems of a business or nation",
+          synonyms: "Framework, foundation, structure",
+          example: "IT infrastructure needs regular updating.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 35,
+          word: "Jurisdiction",
+          definition: "The official power to make legal decisions",
+          synonyms: "Authority, control, power",
+          example: "The case falls under federal jurisdiction.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 36,
+          word: "Knowledge management",
+          definition: "Efficient handling of information within an organization",
+          synonyms: "Information handling, data management",
+          example: "Knowledge management improves organizational efficiency.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 37,
+          word: "Liability",
+          definition: "Legal responsibility for something",
+          synonyms: "Responsibility, obligation, duty",
+          example: "The company faces potential liability for damages.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 38,
+          word: "Market share",
+          definition: "Percentage of total sales in a market",
+          synonyms: "Market percentage, share, portion",
+          example: "Our market share increased by 5%.",
+          difficulty: "Beginner",
+        },
+        {
+          id: 39,
+          word: "Net worth",
+          definition: "Total assets minus total liabilities",
+          synonyms: "Equity, value, worth",
+          example: "The company's net worth grew substantially.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 40,
+          word: "Overhead",
+          definition: "Ongoing business expenses not directly attributed to products",
+          synonyms: "Costs, expenses, outgoings",
+          example: "We need to reduce overhead costs.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 41,
+          word: "Procurement",
+          definition: "The action of obtaining or buying goods and services",
+          synonyms: "Purchasing, acquisition, buying",
+          example: "The procurement process needs streamlining.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 42,
+          word: "Quality assurance",
+          definition: "Maintenance of desired level of quality in service or product",
+          synonyms: "Quality control, QA, standards",
+          example: "Quality assurance is crucial for customer satisfaction.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 43,
+          word: "Return on investment",
+          definition: "Profit relative to investment cost",
+          synonyms: "ROI, yield, return",
+          example: "The project showed a high return on investment.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 44,
+          word: "Supply chain",
+          definition:
+            "Network between company and suppliers to produce and distribute",
+          synonyms: "Distribution network, supply network",
+          example: "Supply chain optimization reduced costs.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 45,
+          word: "Turnover",
+          definition: "The amount of money taken by a business in a period",
+          synonyms: "Revenue, sales, income",
+          example: "Annual turnover exceeded $1 million.",
+          difficulty: "Beginner",
+        },
+        {
+          id: 46,
+          word: "Utilization",
+          definition: "The action of making practical and effective use of something",
+          synonyms: "Use, usage, employment",
+          example: "Resource utilization needs improvement.",
+          difficulty: "Intermediate",
+        },
+        {
+          id: 47,
+          word: "Valuation",
+          definition: "Estimation of something's worth",
+          synonyms: "Assessment, appraisal, evaluation",
+          example: "The company's valuation increased after the merger.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 48,
+          word: "Working capital",
+          definition: "Capital available for day-to-day operations",
+          synonyms: "Operating capital, current assets",
+          example: "Adequate working capital ensures smooth operations.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 49,
+          word: "X-efficiency",
+          definition: "The effectiveness with which a given set of inputs are used",
+          synonyms: "Operational efficiency, productivity",
+          example: "Improving x-efficiency reduced waste.",
+          difficulty: "Advanced",
+        },
+        {
+          id: 50,
+          word: "Year-end",
+          definition: "The end of a 12-month financial period",
+          synonyms: "Financial year end, fiscal year end",
+          example: "Year-end accounts show improved performance.",
+          difficulty: "Beginner",
+        },
+      ];
+      document.addEventListener("DOMContentLoaded", function () {
+        const categoryButtons = document.querySelectorAll(".category-btn");
+        const vocabularyGrid = document.getElementById("vocabularyGrid");
+        const wordGrid = document.getElementById("wordGrid");
+        const accordionItems = document.querySelectorAll(".accordion-item");
+        categoryButtons.forEach((button) => {
+          button.addEventListener("click", () => {
+            vocabularyGrid.classList.remove("hidden");
+            displayVocabulary();
+            document
+              .querySelector("#vocabularyGrid")
+              .scrollIntoView({ behavior: "smooth" });
+          });
+        });
+        function displayVocabulary() {
+          wordGrid.innerHTML = "";
+          mockVocabulary.forEach((word) => {
+            const card = document.createElement("div");
+            card.className =
+              "bg-slate-800/90 p-6 rounded-lg hover:bg-slate-700/90 transition-all hover:scale-105 cursor-pointer shadow-lg border border-slate-700/50";
+            card.innerHTML = `
+      <div class="flex flex-col h-full">
+      <h3 class="text-xl font-bold mb-2">${word.word}</h3>
+      <p class="text-gray-300 mb-4 flex-grow">${word.definition}</p>
+      <div class="space-y-2">
+      <p class="text-sm text-gray-400"><span class="font-semibold">Synonyms:</span> ${word.synonyms}</p>
+      <p class="text-sm text-gray-400"><span class="font-semibold">Example:</span> ${word.example}</p>
+      </div>
+      <div class="flex justify-between items-center mt-4 pt-4 border-t border-slate-700">
+      <span class="px-3 py-1 text-sm rounded-full ${
+              word.difficulty === "Beginner"
+                ? "bg-green-500/20 text-green-400"
+                : word.difficulty === "Intermediate"
+                  ? "bg-yellow-500/20 text-yellow-400"
+                  : "bg-red-500/20 text-red-400"
+            }">${word.difficulty}</span>
+      <div class="flex space-x-2">
+      <button class="w-8 h-8 flex items-center justify-center bg-slate-700 rounded-full hover:bg-slate-600 transition-colors">
+      <i class="ri-bookmark-line"></i>
+      </button>
+      <button class="w-8 h-8 flex items-center justify-center bg-primary rounded-full hover:bg-secondary transition-colors">
+      <i class="ri-volume-up-line"></i>
+      </button>
+      </div>
+      </div>
+      </div>
+      `;
+            const audioButton =
+              card.querySelector(".ri-volume-up-line").parentElement;
+            audioButton.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const utterance = new SpeechSynthesisUtterance(word.word);
+              utterance.lang = "en-US";
+              window.speechSynthesis.speak(utterance);
+            });
+            const bookmarkButton =
+              card.querySelector(".ri-bookmark-line").parentElement;
+            bookmarkButton.addEventListener("click", (e) => {
+              e.stopPropagation();
+              const icon = bookmarkButton.querySelector("i");
+              if (icon.classList.contains("ri-bookmark-line")) {
+                icon.classList.replace("ri-bookmark-line", "ri-bookmark-fill");
+                bookmarkButton.classList.add("bg-secondary");
+              } else {
+                icon.classList.replace("ri-bookmark-fill", "ri-bookmark-line");
+                bookmarkButton.classList.remove("bg-secondary");
+              }
+            });
+            card.addEventListener("click", () => showWordDetails(word));
+            wordGrid.appendChild(card);
+          });
+        }
+        function showWordDetails(word) {
+          const modal = document.createElement("div");
+          modal.className =
+            "fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50";
+          modal.innerHTML = `
+          <div class="bg-slate-800 w-full max-w-2xl mx-4 rounded-lg shadow-2xl border border-slate-700/50 transform transition-all">
+            <div class="p-6">
+              <div class="flex justify-between items-start mb-6">
+                <div>
+                  <h3 class="text-2xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">${word.word}</h3>
+                  <span class="px-3 py-1 text-sm rounded-full inline-block mt-2 ${
+                    word.difficulty === "Beginner"
+                      ? "bg-green-500/20 text-green-400"
+                      : word.difficulty === "Intermediate"
+                        ? "bg-yellow-500/20 text-yellow-400"
+                        : "bg-red-500/20 text-red-400"
+                  }">${word.difficulty}</span>
+                </div>
+                <button class="text-gray-400 hover:text-white transition-colors" onclick="this.closest('.fixed').remove()">
+                  <i class="ri-close-line ri-lg"></i>
+                </button>
+              </div>
+
+              <div class="space-y-6">
+                <div>
+                  <h4 class="text-sm uppercase text-gray-400 mb-2">Definition</h4>
+                  <p class="text-lg text-gray-200">${word.definition}</p>
+                </div>
+
+                <div>
+                  <h4 class="text-sm uppercase text-gray-400 mb-2">Example</h4>
+                  <p class="text-gray-300 bg-slate-700/50 p-4 rounded-lg italic">"${word.example}"</p>
+                </div>
+
+                <div>
+                  <h4 class="text-sm uppercase text-gray-400 mb-2">Synonyms</h4>
+                  <div class="flex flex-wrap gap-2">
+                    ${word.synonyms
+                      .split(", ")
+                      .map(
+                        (syn) =>
+                          `<span class="px-3 py-1 bg-slate-700/50 rounded-full text-sm text-gray-300">${syn}</span>`,
+                      )
+                      .join("")}
+                  </div>
+                </div>
+
+                <div class="flex items-center justify-between pt-6 border-t border-slate-700">
+                  <div class="flex space-x-2">
+                    <button class="flex items-center space-x-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 transition-colors rounded-button">
+                      <i class="ri-bookmark-line"></i>
+                      <span>Save</span>
+                    </button>
+                    <button class="flex items-center space-x-2 px-4 py-2 bg-slate-700 hover:bg-slate-600 transition-colors rounded-button">
+                      <i class="ri-share-line"></i>
+                      <span>Share</span>
+                    </button>
+                  </div>
+                  <button class="flex items-center space-x-2 px-6 py-2 bg-primary hover:bg-secondary transition-colors rounded-button" onclick="playWordAudio('${word.word}')">
+                    <i class="ri-volume-up-line"></i>
+                    <span>Listen</span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+
+          document.body.appendChild(modal);
+
+          modal.addEventListener("click", (e) => {
+            if (e.target === modal) {
+              modal.remove();
+            }
+          });
+        }
+        function playWordAudio(word) {
+          const utterance = new SpeechSynthesisUtterance(word);
+          utterance.lang = "en-US";
+          window.speechSynthesis.speak(utterance);
+        }
+        accordionItems.forEach((item) => {
+          const button = item.querySelector("button");
+          const content = item.querySelector(".accordion-content");
+          button.addEventListener("click", () => {
+            content.classList.toggle("active");
+            const icon = button.querySelector("i");
+            icon.classList.toggle("ri-arrow-down-s-line");
+            icon.classList.toggle("ri-arrow-up-s-line");
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

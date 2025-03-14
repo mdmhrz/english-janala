@@ -17,7 +17,11 @@ const showLessonButtons = (buttons) => {
         newButton.innerHTML = `
             <i class="fa-solid fa-book-open"></i> Lesson-${button.level_no}
         `;
-        newButton.setAttribute('onclick', `loadWords('${button.level_no}')`);
+
+        newButton.setAttribute('onclick', `
+            loadWords('${button.level_no}');
+            hideElementsByID('default-dialogue-display');
+        `);
         newButton.classList.add('btn', 'btn-outline', 'btn-primary', 'lesson-btn', 'px-6', 'border-2');
         lessonContainer.appendChild(newButton);
     });
@@ -30,16 +34,18 @@ const loadWords = async (id) => {
     try {
         const response = await fetch(`https://openapi.programming-hero.com/api/level/${id}`);
         const data = await response.json();
-        showWords(data.data); // Adjust based on API response structure
+        showWords(data.data);
     } catch (error) {
         console.error('Error fetching words:', error);
     }
 };
 
 const showWords = (words) => {
+
     const wordsContainer = document.getElementById('words-container');
-    wordsContainer.innerHTML = ''; // Clear previous content
+    wordsContainer.innerHTML = '';
     words.forEach((word) => {
+
         const div = document.createElement('div');
         div.innerHTML = `
             <div class="bg-gray-100 rounded-md shadow-md p-5 text-center hover:bg-violet-100">

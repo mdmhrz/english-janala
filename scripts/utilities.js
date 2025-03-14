@@ -1,7 +1,7 @@
 
 // To hide elements
 const hideElementsByID = (id) => {
-    document.getElementById(id).classList.add('hidden')
+    document.getElementById(id).classList.add('hidden');
 }
 
 
@@ -23,3 +23,5 @@ const getConInputValueByID = (id) => {
     return data
 
 }
+
+
