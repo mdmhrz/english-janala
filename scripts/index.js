@@ -42,21 +42,22 @@ const showLessonButtons = (buttons) => {
 // For Loading Dynamic words 33 to 80 line
 const loadWords = async (id) => {
     try {
+        showElementsByID('loading')
         const response = await fetch(`https://openapi.programming-hero.com/api/level/${id}`);
         const data = await response.json();
+        hideElementsByID('loading')
         showWords(data.data);
-
-        const allbtns = document.getElementsByClassName('lesson-btn');
-
-
-
-
     } catch (error) {
         console.error('Error fetching words:', error);
+        hideElementsByID('loading')
     }
 };
 
 const showWords = (words) => {
+    hideElementsByID('loading')
+    if (words === true) {
+        document.getElementById('loading').classList.add('hidden')
+    }
     // To show warning box
     if (words.length === 0) {
         showElementsByID('warning-dialogue-display')
