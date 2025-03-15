@@ -23,7 +23,16 @@ const showLessonButtons = (buttons) => {
             loadWords('${button.level_no}');
             hideElementsByID('default-dialogue-display');
         `);
-        newButton.classList.add('btn', 'btn-outline', 'btn-primary', 'lesson-btn', 'px-6', 'border-2');
+        newButton.classList.add('btn', 'text-primary', 'border-primary', 'lesson-btn', 'px-6', 'border-2', 'hover:bg-primary', 'hover:text-white');
+
+        newButton.addEventListener('click', function () {
+            const allbtns = document.getElementsByClassName('lesson-btn');
+            for (const otherBtn of allbtns) {
+                otherBtn.classList.remove('text-white', 'bg-primary');
+            }
+            this.classList.add('text-white', 'bg-primary');
+        });
+
         lessonContainer.appendChild(newButton);
     });
 };
@@ -36,6 +45,11 @@ const loadWords = async (id) => {
         const response = await fetch(`https://openapi.programming-hero.com/api/level/${id}`);
         const data = await response.json();
         showWords(data.data);
+
+        const allbtns = document.getElementsByClassName('lesson-btn');
+
+
+
 
     } catch (error) {
         console.error('Error fetching words:', error);
@@ -116,24 +130,6 @@ const showWordDetails = (data) => {
     my_modal_3.showModal()
 
 }
-
-
-
-
-
-/*
-
-
-
-
-
-*/
-
-
-
-
-
-
 
 
 

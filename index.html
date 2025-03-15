@@ -22,29 +22,6 @@
             font-family: "Inter", kalpurush;
         }
 
-        .btn-grad {
-            background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%)
-        }
-
-        .btn-grad {
-            margin: 10px;
-            padding: 15px 45px;
-            text-align: center;
-            text-transform: uppercase;
-            transition: 0.5s;
-            background-size: 200% auto;
-            color: white;
-            box-shadow: 0 0 20px #eee;
-            border-radius: 10px;
-            display: block;
-        }
-
-        .btn-grad:hover {
-            background-position: right center;
-            /* change the direction of the change here */
-            color: #fff;
-            text-decoration: none;
-        }
     </style>
 </head>
 
@@ -58,8 +35,12 @@
                 <p class="font-bold text-2xl">জানালা</p>
             </div>
             <div class="flex gap-3">
-                <button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</button>
-                <button class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</button>
+                <a href="#faqContainer">
+                    <button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</button>
+                </a>
+                <a href="#learningContainer">
+                    <button class="btn btn-outline btn-primary"><i class="fa-solid fa-book-open"></i> Learn</button>
+                </a>
                 <button id="logoutBtn" class="btn btn-outline btn-primary"><i
                         class="fa-solid fa-right-from-bracket"></i> Logout</button>
             </div>
