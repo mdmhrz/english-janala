@@ -1,7 +1,7 @@
 
-// hideElementsByID('headerContainer');
-// hideElementsByID('learningContainer');
-// hideElementsByID('faqContainer')
+hideElementsByID('headerContainer');
+hideElementsByID('learningContainer');
+hideElementsByID('faqContainer')
 
 document.getElementById('get-start').addEventListener('click', (event) => {
     event.preventDefault()
@@ -15,6 +15,7 @@ document.getElementById('get-start').addEventListener('click', (event) => {
     }
     else if (password === 123456) {
         hideElementsByID('bannerContainer')
+        // showElementsByID('loginModal')
         showElementsByID('headerContainer')
         showElementsByID('learningContainer')
         showElementsByID('learningContainer')
@@ -32,6 +33,20 @@ document.getElementById('logoutBtn').addEventListener('click', (event) => {
     hideElementsByID('learningContainer');
     hideElementsByID('faqContainer')
 })
+
+showElementsByID('loginModal')
+
+function closeLoginModal() {
+    const modal = document.getElementById('loginModal');
+    const body = document.body;
+    modal.classList.add('opacity-0');
+    body.style.overflow = 'auto';
+    setTimeout(() => {
+        modal.style.display = 'none';
+    }, 300);
+}
+
+
 
 
 

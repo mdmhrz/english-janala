@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 
 <head>
     <meta charset="UTF-8">
@@ -27,7 +27,7 @@
 
 <body>
     <!-- Header -->
-    <header id="headerContainer" class="bg-gray-100 border-b-2 border-gray-200">
+    <header id="headerContainer" class="bg-gray-100 border-b-2 border-gray-200 fixed top-0 left-0 right-0 z-50">
         <nav class="flex items-center justify-between w-11/12 md:w-10/12 mx-auto py-5">
             <div class="flex items-center gap-2">
                 <p class="font-bold text-2xl">English</p>
@@ -90,6 +90,8 @@
                 <p class="text-gray-500 mb-3 text-red-400">এই Lesson এ এখনো কোন Vocabulary যুক্ত করা হয়নি।</p>
                 <p class="text-3xl text-gray-700 font-medium">নেক্সট Lesson এ যান</p>
             </div>
+
+            <!-- Words Modal -->
             <div id="modal-contaier">
                 <!-- You can open the modal using ID.showModal() method -->
                 <!-- <button class="btn" onclick="my_modal_3.showModal()">open modal</button> -->
@@ -106,6 +108,24 @@
                         
                     </div>
                 </dialog>
+            </div>
+
+            <!-- Successfull Login Modal -->
+            <div id="loginModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
+                <div class="absolute inset-0 bg-black opacity-50"></div>
+                <div class="bg-white rounded-lg p-6 w-96 shadow-xl absolute">
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                            <i class="ri-check-line text-3xl text-green-600"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Login Successful!</h3>
+                        <p class="text-gray-600 mb-6">Welcome back to your learning journey, Emily!</p>
+                        <button onclick="closeLoginModal()"
+                            class="w-full bg-primary text-white py-2 px-4 rounded-button hover:bg-primary/90 transition-colors">
+                            Continue to Dashboard
+                        </button>
+                    </div>
+                </div>
             </div>
 
         </section>
@@ -161,9 +181,16 @@
                 <div>
                     <p class="font-semibold text-[12px] mb-3">FOLLOW US</p>
                     <div class="flex gap-4">
-                        <i class="fa-brands cursor-pointer text-2xl fa-github"></i>
-                        <i class="fa-brands cursor-pointer text-2xl fa-linkedin"></i>
-                        <i class="fa-brands cursor-pointer text-2xl fa-youtube"></i>
+                        <a href="https://github.com/mdmhrz" target="_blank">
+                            <i class="fa-brands cursor-pointer text-3xl fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/mdmhrz/" target="_blank">
+                            <i class="fa-brands cursor-pointer text-3xl fa-linkedin"></i>
+                        </a>
+                        <a href="https://www.youtube.com/" target="_blank">
+                            <i class="fa-brands cursor-pointer text-3xl fa-youtube"></i>
+                        </a>
+
                     </div>
 
                 </div>
@@ -171,6 +198,8 @@
             </nav>
         </section>
     </footer>
+
+    
 
     <script src="./scripts/utilities.js"></script>
     <script src="./scripts/login-logout.js"></script>
