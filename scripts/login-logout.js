@@ -23,11 +23,14 @@ document.getElementById('get-start').addEventListener('click', (event) => {
         });
     }
     else if (password === 123456) {
-        // Login Success Alert
+        // // Login Success Alert
         Swal.fire({
-            title: "Welcome",
-            text: "You've successfully logged In",
-            icon: "success"
+            position: "center",
+            icon: "success",
+            title: "Welcome!",
+            text: "You've been successfully logged-in",
+            showConfirmButton: false,
+            timer: 2000
         });
 
         hideElementsByID('bannerContainer')
@@ -47,11 +50,50 @@ document.getElementById('get-start').addEventListener('click', (event) => {
 
 
 document.getElementById('logoutBtn').addEventListener('click', (event) => {
-    showElementsByID('bannerContainer')
-    hideElementsByID('headerContainer');
-    hideElementsByID('learningContainer');
-    hideElementsByID('faqContainer')
+
+
+
+
+
 })
+
+
+document.getElementById("logoutBtn").addEventListener("click", () => {
+    Swal.fire({
+        title: "Are you sure?",
+        text: "You will be logged out of your account.",
+        icon: "warning", // Warning icon
+        showCancelButton: true, // Show cancel button
+        confirmButtonText: "Yes, log me out", // Confirm button text
+        cancelButtonText: "No, stay logged in", // Cancel button text
+        confirmButtonColor: "#3085d6", // Confirm button color
+        cancelButtonColor: "#d33", // Cancel button color
+    }).then((result) => {
+        if (result.isConfirmed) {
+            // User clicked "Yes, log me out"
+            Swal.fire({
+                title: "Logged Out!",
+                text: "You have been successfully logged out.",
+                icon: "success", // Success icon
+                confirmButtonText: "OK"
+            }).then(() => {
+                showElementsByID('bannerContainer')
+                hideElementsByID('headerContainer');
+                hideElementsByID('learningContainer');
+                hideElementsByID('faqContainer')
+            });
+
+        } else if (result.isDismissed) {
+            // User clicked "No, stay logged in" or dismissed the dialog
+            Swal.fire({
+                title: "Cancelled",
+                text: "You are still logged in.",
+                icon: "info", // Info icon
+                confirmButtonText: "OK"
+            });
+        }
+    });
+});
 
 
 
