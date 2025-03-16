@@ -60,25 +60,29 @@ const showWords = (words) => {
     }
     // To show warning box
     if (words.length === 0) {
+
         showElementsByID('warning-dialogue-display')
+        document.getElementById('words-container').style.display = 'none'
     }
     else {
         hideElementsByID('warning-dialogue-display')
+        // hideElementsByID('words-container')
     }
 
     // To show words in container by making loop
     const wordsContainer = document.getElementById('words-container');
     wordsContainer.innerHTML = '';
+    showElementsByID('words-container')
 
     words.forEach((word) => {
         // console.log(word)
         const div = document.createElement('div');
         div.innerHTML = `
-            <div class="bg-white rounded-md shadow-md p-5 text-center hover:bg-violet-100">
+            <div class="bg-white rounded-md shadow-md p-5 text-center hover:bg-violet-100 min-h-[260px]">
                 <div class="mb-10">
                     <h1 class="text-3xl font-bold mb-5">${word.word}</h1>
                     <p class="text-1xl font-semibold text-gray-500">Meaning / Pronunciation</p>
-                    <h1 class="text-3xl font-bold mt-3">${word.meaning} / ${word.pronunciation}</h1>
+                    <h1 class="text-2xl font-bold mt-3">${word.meaning} / ${word.pronunciation}</h1>
                 </div>
                 <div class="flex items-center justify-between">
                     <div onclick="loadWordDetails('${word.id}')" class="w-12 h-12 cursor-pointer hover:bg-violet-300 rounded-sm bg-violet-200 flex items-center justify-center">
@@ -94,6 +98,8 @@ const showWords = (words) => {
 
     });
 };
+
+
 
 
 
