@@ -12,9 +12,11 @@
     <!-- Google Font CDN -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
-        rel="stylesheet">
+    <!-- Google Poppins and Hind Shiliguri Font CDN -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+
     <!-- Font Awesome CDN -->
     <script src="https://kit.fontawesome.com/c4e937c9d9.js" crossorigin="anonymous"></script>
     <!-- Sweet Alert CDN -->
@@ -30,7 +32,11 @@
             font-style: normal;
         }
         body {
-            font-family: "Inter", "alinur";
+            font-family: "poppins", "Hind Siliguri";
+        }
+
+        .bangla-font{
+            font-family: "alinur";
         }
         
     </style>
@@ -63,7 +69,7 @@
             class="w-11/12 md:w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 lg:gap-80 min-h-screen items-center">
             <div class="flex flex-col gap-4">
                 <h1 class="font-bold text-4xl lg:text-5xl"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
-                <p class="text-[1.5rem] font-medium mb-8">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন
+                <p class="text-[1.5rem] font-medium mb-8 bangla-font">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন
                     অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ।</p>
                 <input class="rounded-sm max-w-[420px] px-4 py-2 border-2 border-gray-300" type="text" name="name"
                     id="inputName" placeholder="Enter Your Name" value="Razu">
