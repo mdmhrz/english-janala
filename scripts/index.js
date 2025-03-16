@@ -74,7 +74,7 @@ const showWords = (words) => {
         // console.log(word)
         const div = document.createElement('div');
         div.innerHTML = `
-            <div class="bg-gray-100 rounded-md shadow-md p-5 text-center hover:bg-violet-100">
+            <div class="bg-white rounded-md shadow-md p-5 text-center hover:bg-violet-100">
                 <div class="mb-10">
                     <h1 class="text-3xl font-bold mb-5">${word.word}</h1>
                     <p class="text-1xl font-semibold text-gray-500">Meaning / Pronunciation</p>
@@ -131,6 +131,9 @@ const showWordDetails = (data) => {
     my_modal_3.showModal()
 
 }
+
+
+
 
 
 

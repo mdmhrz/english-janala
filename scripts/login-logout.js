@@ -8,21 +8,40 @@ document.getElementById('get-start').addEventListener('click', (event) => {
     const userName = getInputValueById('inputName');
     const password = getConInputValueByID('inputPassword');
     if (userName === '') {
-        alert('Please Enter You Name')
+        Swal.fire({
+            title: "Username can't be empty",
+            text: "Please type your name",
+            icon: "error"
+        });
     }
     else if (!password || isNaN(password)) {
-        alert('Please enter your password')
+
+        Swal.fire({
+            title: "Password can't be empty",
+            text: "Please type your password",
+            icon: "error"
+        });
     }
     else if (password === 123456) {
+        // Login Success Alert
+        Swal.fire({
+            title: "Welcome",
+            text: "You've successfully logged In",
+            icon: "success"
+        });
+
         hideElementsByID('bannerContainer')
-        // showElementsByID('loginModal')
         showElementsByID('headerContainer')
         showElementsByID('learningContainer')
         showElementsByID('learningContainer')
         showElementsByID('faqContainer')
     }
     else {
-        alert('Please enter your valid password')
+        Swal.fire({
+            title: "Wrong Password",
+            text: "Please enter your valid password",
+            icon: "error"
+        });
     }
 })
 
@@ -34,17 +53,6 @@ document.getElementById('logoutBtn').addEventListener('click', (event) => {
     hideElementsByID('faqContainer')
 })
 
-showElementsByID('loginModal')
-
-function closeLoginModal() {
-    const modal = document.getElementById('loginModal');
-    const body = document.body;
-    modal.classList.add('opacity-0');
-    body.style.overflow = 'auto';
-    setTimeout(() => {
-        modal.style.display = 'none';
-    }, 300);
-}
 
 
 

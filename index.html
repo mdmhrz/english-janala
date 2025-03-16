@@ -17,6 +17,10 @@
         rel="stylesheet">
     <!-- Font Awesome CDN -->
     <script src="https://kit.fontawesome.com/c4e937c9d9.js" crossorigin="anonymous"></script>
+    <!-- Sweet Alert CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    
+
     <style>
         body {
             font-family: "Inter", kalpurush;
@@ -84,11 +88,9 @@
                 </div>
             </div>
 
-            <!-- Dynamic Lesson Details by Lesson Number -->
-            <div id="words-container" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            </div>
-
-            
+            <!-- Dynamic lesson Details by Lesson Number -->
+            <div id="words-container" class="rounded-md grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            </div>          
 
 
             <!-- Default Display for Selection -->
@@ -126,27 +128,6 @@
                 </dialog>
             </div>
 
-            
-
-            <!-- Successfull Login Modal -->
-            <div id="loginModal" class="fixed inset-0 flex items-center justify-center z-50 hidden">
-                <div class="absolute inset-0 bg-black opacity-50"></div>
-                <div class="bg-white rounded-lg p-6 w-96 shadow-xl absolute">
-                    <div class="text-center">
-                        <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
-                            <i class="fa-solid fa-check text-green-600 text-2xl"></i>
-                        </div>
-                        <h3 class="text-xl font-semibold text-gray-900 mb-2">Login Successful!</h3>
-                        <p class="text-gray-600 mb-6">Welcome back to your learning journey, Emily!</p>
-                        <button onclick="closeLoginModal()"
-                            class="btn btn-primary w-full">
-                            Continue to Dashboard
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            
 
         </section>
 
@@ -220,7 +201,6 @@
     </footer>
 
     
-
     <script src="./scripts/utilities.js"></script>
     <script src="./scripts/login-logout.js"></script>
     <script src="./scripts/index.js"></script>
