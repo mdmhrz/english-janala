@@ -95,8 +95,9 @@ const showWords = (words) => {
     });
 };
 
-// my_modal_3.showModal()
 
+
+// For showing every single words details from API
 const loadWordDetails = async (id) => {
     try {
         const response = await fetch(`https://openapi.programming-hero.com/api/word/${id}`);
@@ -110,7 +111,7 @@ const loadWordDetails = async (id) => {
 
 
 const showWordDetails = (data) => {
-    console.log(data.word)
+    console.log(data)
     const modalDataContainer = document.getElementById('modalDataContainer');
     modalDataContainer.innerHTML = ''
     const div = document.createElement('div')
