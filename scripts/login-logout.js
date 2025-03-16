@@ -1,7 +1,7 @@
 
-hideElementsByID('headerContainer');
-hideElementsByID('learningContainer');
-hideElementsByID('faqContainer')
+// hideElementsByID('headerContainer');
+// hideElementsByID('learningContainer');
+// hideElementsByID('faqContainer')
 
 document.getElementById('get-start').addEventListener('click', (event) => {
     event.preventDefault()
@@ -49,13 +49,7 @@ document.getElementById('get-start').addEventListener('click', (event) => {
 })
 
 
-document.getElementById('logoutBtn').addEventListener('click', (event) => {
 
-
-
-
-
-})
 
 
 document.getElementById("logoutBtn").addEventListener("click", () => {
@@ -70,18 +64,22 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
         cancelButtonColor: "#d33", // Cancel button color
     }).then((result) => {
         if (result.isConfirmed) {
+            showElementsByID('bannerContainer')
+            hideElementsByID('headerContainer');
+            hideElementsByID('learningContainer');
+            hideElementsByID('faqContainer')
             // User clicked "Yes, log me out"
             Swal.fire({
                 title: "Logged Out!",
                 text: "You have been successfully logged out.",
                 icon: "success", // Success icon
-                confirmButtonText: "OK"
-            }).then(() => {
-                showElementsByID('bannerContainer')
-                hideElementsByID('headerContainer');
-                hideElementsByID('learningContainer');
-                hideElementsByID('faqContainer')
-            });
+                showConfirmButton: false,
+                timer: 1500
+                // confirmButtonText: "OK"
+            })
+            // .then(() => {
+
+            // });
 
         } else if (result.isDismissed) {
             // User clicked "No, stay logged in" or dismissed the dialog
@@ -89,7 +87,8 @@ document.getElementById("logoutBtn").addEventListener("click", () => {
                 title: "Cancelled",
                 text: "You are still logged in.",
                 icon: "info", // Info icon
-                confirmButtonText: "OK"
+                showConfirmButton: false,
+                timer: 1500
             });
         }
     });

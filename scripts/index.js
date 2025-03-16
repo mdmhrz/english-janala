@@ -110,27 +110,32 @@ const loadWordDetails = async (id) => {
 }
 
 
+
 const showWordDetails = (data) => {
-    console.log(data)
     const modalDataContainer = document.getElementById('modalDataContainer');
     modalDataContainer.innerHTML = ''
     const div = document.createElement('div')
-    div.innerHTML = `
-        <h1 class="text-3xl font-bold mb-8" >${data.word} (<span><i class="fa-solid fa-microphone-lines"></i></span> : <span>${data.pronunciation}</span> )</h1>
-        <p class="font-bold mb-2">Meaning</p>
-        <p class="text-2xl mb-6">${data.meaning}</p>
-        <p class="font-bold mb-2">Example</p>
-        <p class="mb-6">${data.sentence}</p>
-        <p class="font-semibold text-[16px] mb-2">সমার্থক শব্দগুলো</p>
-        <div class="flex gap-3 flex-wrap">
-            <button class="bg-violet-100 btn ">${data.synonyms[0]}</button>
-            <button class="bg-violet-100 btn ">${data.synonyms[1]}</button>
-            <button class="bg-violet-100 btn ">${data.synonyms[2]}</button>
-        </div>
-    `
-    modalDataContainer.appendChild(div)
-    my_modal_3.showModal()
 
+    // Function to check if a value exists, otherwise return 'Not found'
+    const getValue = (value) => value || 'Not found';
+
+    div.innerHTML = `
+        <h1 class="text-3xl font-bold mb-8">${getValue(data.word)} (<span><i class="fa-solid fa-microphone-lines"></i></span> : <span>${getValue(data.pronunciation)}</span> )</h1>
+        <p class="font-bold mb-2">Meaning</p>
+        <p class="text-2xl mb-6">${getValue(data.meaning)}</p>
+        <p class="font-bold mb-2">Example</p>
+        <p class="mb-6">${getValue(data.sentence)}</p>
+        <p class="font-semibold text-[16px] mb-2">সমার্থক শব্দগুলো</p>
+        <div class="flex gap-3 flex-wrap mb-4">
+            ${data.synonyms && data.synonyms.length > 0 ? data.synonyms.map(synonym => `
+                <button class="bg-violet-100 btn">${getValue(synonym)}</button>
+            `).join('') : '<p>Not found</p>'}
+        </div>
+    `;
+
+    modalDataContainer.appendChild(div)
+    // to call the modal
+    my_modal_3.showModal()
 }
 
 
@@ -138,5 +143,5 @@ const showWordDetails = (data) => {
 
 
 
-
+// dynamic buttons will be load at first
 loadLevels();
