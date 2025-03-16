@@ -84,7 +84,7 @@ const showWords = (words) => {
                     <div onclick="loadWordDetails('${word.id}')" class="w-12 h-12 cursor-pointer hover:bg-violet-300 rounded-sm bg-violet-200 flex items-center justify-center">
                         <i class="fa-solid fa-circle-info"></i>
                     </div>
-                    <div class="w-12 h-12 cursor-pointer hover:bg-violet-300 rounded-sm bg-violet-200 flex items-center justify-center">
+                    <div onclick="pronounceWord('${word.word}')" class="w-12 h-12 cursor-pointer hover:bg-violet-300 rounded-sm bg-violet-200 flex items-center justify-center">
                         <i class="fa-solid fa-volume-high"></i>
                     </div>
                 </div>
@@ -118,24 +118,33 @@ const showWordDetails = (data) => {
 
     // Function to check if a value exists, otherwise return 'Not found'
     const getValue = (value) => value || 'Not found';
+    const getMeaning = (value) => value || 'কোনো অর্থ খুঁজে পাওয়া যায়নি'
 
     div.innerHTML = `
         <h1 class="text-3xl font-bold mb-8">${getValue(data.word)} (<span><i class="fa-solid fa-microphone-lines"></i></span> : <span>${getValue(data.pronunciation)}</span> )</h1>
-        <p class="font-bold mb-2">Meaning</p>
-        <p class="text-2xl mb-6">${getValue(data.meaning)}</p>
+        <p class="font-bold mb-2">Bengali Meaning</p>
+        <p class="text-2xl mb-6">${getMeaning(data.meaning)}</p>
         <p class="font-bold mb-2">Example</p>
         <p class="mb-6">${getValue(data.sentence)}</p>
-        <p class="font-semibold text-[16px] mb-2">সমার্থক শব্দগুলো</p>
+        <p class="font-semibold text-[16px] mb-2">Synomyms</p>
         <div class="flex gap-3 flex-wrap mb-4">
             ${data.synonyms && data.synonyms.length > 0 ? data.synonyms.map(synonym => `
                 <button class="bg-violet-100 btn">${getValue(synonym)}</button>
-            `).join('') : '<p>Not found</p>'}
+            `).join('') : '<p>Nothing has found</p>'}
         </div>
     `;
 
     modalDataContainer.appendChild(div)
     // to call the modal
     my_modal_3.showModal()
+}
+
+
+// Making sound of words
+function pronounceWord(word) {
+    const utterance = new SpeechSynthesisUtterance(word);
+    utterance.lang = 'en-EN'; // English
+    window.speechSynthesis.speak(utterance);
 }
 
 

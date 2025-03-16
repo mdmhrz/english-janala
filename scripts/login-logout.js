@@ -1,7 +1,7 @@
 
-// hideElementsByID('headerContainer');
-// hideElementsByID('learningContainer');
-// hideElementsByID('faqContainer')
+hideElementsByID('headerContainer');
+hideElementsByID('learningContainer');
+hideElementsByID('faqContainer')
 
 document.getElementById('get-start').addEventListener('click', (event) => {
     event.preventDefault()
