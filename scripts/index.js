@@ -59,13 +59,14 @@ const showWords = (words) => {
     // To show warning box and hide words container if words is empty
     if (Object.keys(words).length === 0) {
         showElementsByID('warning-dialogue-display'); // Show warning
-        hideElementsByID('words-container'); // Hide words container
+        wordsContainer.classList.remove('bg-gray-100')
     } else {
         hideElementsByID('warning-dialogue-display'); // Hide warning
         showElementsByID('words-container'); // Show words container
+        wordsContainer.classList.add('bg-gray-100')
     }
     wordsContainer.innerHTML = '';
-    showElementsByID('words-container')
+
     words.forEach((word) => {
         // console.log(word)
         const div = document.createElement('div');
@@ -86,11 +87,12 @@ const showWords = (words) => {
                 </div>
             </div>
         `;
+
         wordsContainer.appendChild(div);
-        showElementsByID('words-container')
 
     });
 };
+
 
 
 
