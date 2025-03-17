@@ -52,7 +52,7 @@
                 <i class="fa-brands fa-windows text-blue-700 text-4xl"></i>
                 <p class="font-bold text-2xl">জানালা</p>
             </div>
-            <div class="flex gap-3">
+            <div class="gap-3 hidden lg:flex">
                 <a href="#faqContainer">
                     <button class="btn btn-outline btn-primary"><i class="fa-solid fa-circle-question"></i> FAQ</button>
                 </a>
@@ -62,6 +62,24 @@
                 <button id="logoutBtn" class="btn btn-outline btn-primary"><i
                         class="fa-solid fa-right-from-bracket"></i> Logout</button>
             </div>
+            <div id="side-drawer">
+                <div class="drawer drawer-end">
+                    <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
+                    <div class="drawer-content">
+                      <!-- Page content here -->
+                      <label for="my-drawer-4" class="drawer-button btn bg-blue-100"><i class="fa-solid fa-bars"></i></label>
+                    </div>
+                    <div class="drawer-side">
+                      <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
+                      <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+                        <!-- Sidebar content here -->
+                        <li class="bg-blue-100 rounded-md p-2 mb-3 text-[16px] font-semibold text-blue-600"><a href="#faqContainer"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
+                        <li class="bg-blue-100 rounded-md p-2 mb-3 text-[16px] font-semibold text-blue-600"><a href="#learningContainer"><i class="fa-solid fa-book-open"></i> Learn</a></li>
+                    </ul>
+                    </div>
+                  </div>
+            </div>
+
         </nav>
     </header>
     <main>
@@ -175,6 +193,7 @@
                 <div class="collapse-content text-sm">Yes, the website offers certificates for some completed courses, especially those that are part of structured programs. These certificates can be useful for showcasing your learning achievements.</div>
             </div>
         </section>
+
     </main>
     <footer id="footerContainer" class="bg-gray-50">
         <section class="w-11/12 md:w-10/12 mx-auto py-8">
