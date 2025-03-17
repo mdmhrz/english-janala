@@ -62,7 +62,7 @@
                 <button id="logoutBtn" class="btn btn-outline btn-primary"><i
                         class="fa-solid fa-right-from-bracket"></i> Logout</button>
             </div>
-            <div id="side-drawer">
+            <div id="side-drawer" class="lg:hidden">
                 <div class="drawer drawer-end">
                     <input id="my-drawer-4" type="checkbox" class="drawer-toggle" />
                     <div class="drawer-content">
@@ -71,10 +71,16 @@
                     </div>
                     <div class="drawer-side">
                       <label for="my-drawer-4" aria-label="close sidebar" class="drawer-overlay"></label>
-                      <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
+                      <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4 relative">
                         <!-- Sidebar content here -->
                         <li class="bg-blue-100 rounded-md p-2 mb-3 text-[16px] font-semibold text-blue-600"><a href="#faqContainer"><i class="fa-solid fa-circle-question"></i> FAQ</a></li>
                         <li class="bg-blue-100 rounded-md p-2 mb-3 text-[16px] font-semibold text-blue-600"><a href="#learningContainer"><i class="fa-solid fa-book-open"></i> Learn</a></li>
+                        <li  id="logoutBtnSecondary" class="absolute hover:bg-blue-200 flex items-center justify-center left-6 right-6 bottom-4  bg-blue-100 rounded-md p-2 mb-3 text-[16px] font-semibold text-blue-600">
+                            <a class="hover:bg-blue-200" href="#learningContainer">
+                                <i class="text-center fa-solid fa-right-from-bracket hover:bg-blue-200"></i>
+                                Logout
+                            </a>
+                        </li>
                     </ul>
                     </div>
                   </div>
