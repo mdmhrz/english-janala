@@ -54,26 +54,18 @@ const loadWords = async (id) => {
 };
 
 const showWords = (words) => {
-    hideElementsByID('loading')
-    if (words === true) {
-        document.getElementById('loading').classList.add('hidden')
-    }
-    // To show warning box
-    if (words.length === 0) {
-
-        showElementsByID('warning-dialogue-display')
-        document.getElementById('words-container').style.display = 'none'
-    }
-    else {
-        hideElementsByID('warning-dialogue-display')
-        // hideElementsByID('words-container')
-    }
-
-    // To show words in container by making loop
     const wordsContainer = document.getElementById('words-container');
+
+    // To show warning box and hide words container if words is empty
+    if (Object.keys(words).length === 0) {
+        showElementsByID('warning-dialogue-display'); // Show warning
+        hideElementsByID('words-container'); // Hide words container
+    } else {
+        hideElementsByID('warning-dialogue-display'); // Hide warning
+        showElementsByID('words-container'); // Show words container
+    }
     wordsContainer.innerHTML = '';
-
-
+    showElementsByID('words-container')
     words.forEach((word) => {
         // console.log(word)
         const div = document.createElement('div');
@@ -95,7 +87,7 @@ const showWords = (words) => {
             </div>
         `;
         wordsContainer.appendChild(div);
-        wordsContainer.style.display = 'block'
+        showElementsByID('words-container')
 
     });
 };
