@@ -93,13 +93,21 @@
         <section id="bannerContainer"
             class="w-11/12 md:w-10/12 mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-20 lg:gap-80 min-h-screen items-center">
             <div class="flex flex-col gap-4">
-                <h1 class="font-bold text-4xl lg:text-5xl"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
-                <p class="text-[1.5rem] font-medium mb-8 bangla-font">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন
+                <h1 class="font-bold text-4xl lg:text-6xl mb-5"><span class="text-[#00BCFF]">English</span> is Easy!!</h1>
+                <p class="text-[1.7rem] font-medium mb-8 bangla-font">আজ থেকেই আপনার ভাষা শেখার যাত্রা শুরু করুন। আপনি যদি নতুন হন
                     অথবা আপনার দক্ষতা বাড়াতে চান, আমাদের Interactive Lessons আপনাকে নিয়ে যাবে অন্য একটি Level এ।</p>
-                <input class="rounded-sm max-w-[420px] px-4 py-2 border-2 border-gray-300" type="text" name="name"
+                <div class="relative max-w-[400px]">
+                    <input class="rounded-sm w-full pl-10 pr-2 py-2 h-12  border-2 border-gray-300" type="text" name="name"
                     id="inputName" placeholder="Enter Your Name" value="Razu">
-                <input class="rounded-sm max-w-[420px] px-4 py-2 border-2 border-gray-300" type="password"
+                    <i class="text-gray-700 fa-solid fa-user absolute top-[16px] left-3"></i>
+                </div>
+                <div class="relative max-w-[400px]">
+                    <input class="rounded-sm w-full pl-10 pr-2 py-2 border-2 border-gray-300" type="password"
                     name="password" id="inputPassword" value="123456" placeholder="Enter Your Password (eg:123456)">
+                    <i class="text-gray-700 fa-solid fa-lock absolute top-[14px] left-3"></i>
+    
+                </div>
+                
                 <button id="get-start" class="btn btn-primary max-w-[140px]">Get Started</button>
             </div>
             <div>
@@ -109,7 +117,7 @@
 
         <!-- Let's Learn Vocabularies -->
         <section id="learningContainer" class=" w-11/12 md:w-10/12 mx-auto py-8 mt-[200px]">
-            <h1 class="font-bold text-2xl lg:text-4xl text-center mb-10"><span class="text-[#00BCFF]">Let's</span> Learn
+            <h1 class="font-bold text-3xl lg:text-4xl text-center mb-10"><span class="text-[#00BCFF]">Let's</span> Learn
                 Vocabularies</h1>
             <!-- Dynamic Lesson Buttons -->
             <div id="lessonContainer" class="lesson-container flex items-center justify-center gap-6 flex-wrap mb-8">
@@ -171,7 +179,7 @@
 
         <!-- Frequently Asked Question -->
         <section id="faqContainer" class="w-11/12 md:w-10/12 mx-auto mt-24 space-y-4 mb-28">
-            <h1 class="font-bold text-2xl lg:text-4xl text-center mb-6"><span class="text-[#00BCFF]">Frequently</span> Asked Questions</h1>
+            <h1 class="font-bold text-3xl lg:text-4xl text-center mb-6"><span class="text-[#00BCFF]">Frequently</span> Asked Questions</h1>
             <div class="collapse collapse-plus bg-base-100 border border-base-300 bg-gray-50">
                 <input type="radio" name="my-accordion-3" checked="checked" />
                 <div class="collapse-title font-semibold">1. How can I start learning English on this website?</div>
