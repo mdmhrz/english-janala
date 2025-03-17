@@ -72,7 +72,7 @@ const showWords = (words) => {
     // To show words in container by making loop
     const wordsContainer = document.getElementById('words-container');
     wordsContainer.innerHTML = '';
-    showElementsByID('words-container')
+
 
     words.forEach((word) => {
         // console.log(word)
@@ -95,6 +95,7 @@ const showWords = (words) => {
             </div>
         `;
         wordsContainer.appendChild(div);
+        wordsContainer.style.display = 'block'
 
     });
 };
