@@ -21,7 +21,6 @@ const getInputValueById = (id) => {
 const getConInputValueByID = (id) => {
     const data = parseInt(document.getElementById(id).value);
     return data
-
 }
 
 
